@@ -23,7 +23,7 @@ jobs:
       - name: Extract HisabBoi project
         run: |
           mkdir -p project
-          unzip -q "hisabboi v2.zip" -d project
+          unzip -q "hisabboi-v2.zip" -d project
       - name: Find Android project
         run: |
           SETTINGS=$(find project -name settings.gradle.kts -type f | head -1)
