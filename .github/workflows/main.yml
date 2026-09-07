@@ -41,8 +41,10 @@ jobs:
 
       - name: Disable KSP Daemon
         run: |
+          mkdir -p "$PROJECT_DIR/.gradle"
           echo "ksp.incremental=false" >> "$PROJECT_DIR/gradle.properties"
           echo "ksp.use.daemon=false" >> "$PROJECT_DIR/gradle.properties"
+          echo "org.gradle.jvmargs=-Xmx2048m -Dksp.use.daemon=false -Dksp.incremental=false" >> "$PROJECT_DIR/gradle.properties"
 
       - name: Read Gradle version
         run: |
@@ -97,26 +99,12 @@ jobs:
             -dname "CN=Android Debug,O=Android,C=US"
 
       - name: Build Debug APK
+        env:
+          GRADLE_OPTS: "-Dksp.use.daemon=false -Dksp.incremental=false"
         run: |
           cd "$PROJECT_DIR"
 
           "$GRADLE_BIN" assembleDebug \
-            --no-daemon \
-            --stacktrace
-
-      - name: Find APK
-        run: |
-          find "$PROJECT_DIR" \
-            -type f \
-            -name "*.apk" \
-            -print
-
-      - name: Upload HisabBoi APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: HisabBoi-APK-${{ github.run_number }}
-          path: "**/build/outputs/apk/debug/*.apk"
-          if-no-files-found: error          -Pksp.use.daemon=false \
             --no-daemon \
             --stacktrace
 
