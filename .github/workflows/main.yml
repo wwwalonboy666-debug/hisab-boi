@@ -85,6 +85,7 @@ jobs:
           cd "$PROJECT_DIR"
 
           "$GRADLE_BIN" assembleDebug \
+          -Pksp.incremental=false \
             --no-daemon \
             --stacktrace
 
