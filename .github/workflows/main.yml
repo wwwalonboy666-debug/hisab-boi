@@ -23,7 +23,7 @@ jobs:
       - name: Extract HisabBoi project
         run: |
           mkdir -p project
-          unzip -q "hisabboi (6).zip" -d project
+          unzip -q "hisabboi (7).zip" -d project
 
       - name: Find Android project
         run: |
