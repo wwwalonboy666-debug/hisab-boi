@@ -1,0 +1,6 @@
+{
+  "name": "HisabBoi",
+  "description": "হিসাব রাখি, জীবনটা গুছিয়ে রাখি। A peaceful, offline-first personal finance app for Bangladesh users.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
